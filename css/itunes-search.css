@@ -1,10 +1,10 @@
 img.img-thumbnail { 
 	height: 125px; 
-	float: left;
+
 } 
 
-/*#results.div{
-	text-align: center;
+/*#results>div{
+	vertical-align: middle;
 }*/
 
 label{
