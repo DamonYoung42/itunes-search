@@ -20,7 +20,7 @@
         last: true ,
         links: "numeric", // blank || title
         startPage: 1,
-        perPage: 12,
+        perPage: 10,
         midRange: 5,
         startRange: 1,
         endRange: 1,
@@ -32,7 +32,7 @@
         direction: "forward", // backwards || auto || random ||
         animation: "", // http://daneden.me/animate/ - any entrance animations
         fallback: 400,
-        minHeight: true,
+        minHeight: false,
         callback: undefined // function( pages, items ) { }
       };
 
