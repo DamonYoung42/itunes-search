@@ -3,26 +3,24 @@ img.img-thumbnail {
 
 } 
 
-/*#results>div{
-	vertical-align: middle;
-}*/
-
 label{
 	font-size: 16px;
 }
 
 .btn{
 	width: 100%;
+	height: 100%;
+	padding: 20px 20px 20px 20px;
 }
 
 h1{
 	text-align: center;
 }
 
-/*#iTunesHeadline {
-	display: none;
+#headline{
+	padding: 20px 20px 20px 20px;
 }
 
-#YouTubeHeadline {
-	display: none;
-}*/
+#searchButton{
+	padding: 10px;
+}

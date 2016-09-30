@@ -1,60 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap_superhero.css">
-	<link rel="stylesheet" type="text/css" href="css/multimedia-search.css">
-	<link rel="stylesheet" type="text/css" href="css/jPages.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap_superhero.css">
+		<link rel="stylesheet" type="text/css" href="css/multimedia-search.css">
+		<link rel="stylesheet" type="text/css" href="css/jPages.css">
 
-<!-- 	<script type="text/javascript" src="https://apis.google.com/js/api.js"></script> -->
-	<title>Multimedia Library Search</title>
-</head>
-<body>
-	<div class="container-fluid">
+		<title>Multimedia Library Search</title>
+	</head>
 
-		<div class="row">
-			<div class="col-sm-4">
+	<body>
+		<div class="container">
+
+			<div class="row" id="headline">
+				<div class="col-sm-12">
+					<h1>Multimedia Search</h1>
+				</div>
 			</div>
 
-			<div class="col-sm-4" id="header">
-				<h1>Multimedia Search</h1>
+			<div class="row"></div>
 
-
-				<div class="form-group">
-				      <label for="searchTerm">Enter your search criteria:</label>
-				      <input type="text" class="form-control" id="searchTerm" placeholder="Enter artist's name or song title">
+			<div class="row" id="header">
+				<div class="col-sm-3">
+					<div class="form-group">
+					      <label for="searchTerm">Enter your search criteria:</label>
+					      <input type="text" class="form-control" id="searchTerm" placeholder="Enter artist's name or song title">
+					</div>
+				</div>
+				
+				<div class="col-sm-1">
+				</div>
+				
+				<div class="col-sm-3">
+					<div class="form-group">
+					      <label for="searchService">Select a service:</label>
+						  <form>
+						    <label class="radio-inline">
+						    	<input type="radio" name="searchService" value="iTunes">iTunes</label>
+						    </label>
+						    <label class="radio-inline">
+						    	<input type="radio" name="searchService" value="YouTube">YouTube</label>
+						    </label>
+						    <label class="radio-inline">
+						    	<input type="radio" name="searchService" value="Both" checked>Both</label>
+						    </label>					    
+						  </form>
+					</div>
 				</div>
 
-				<input type="button" class="btn btn-primary" value="Search" onclick="executeSearch()" >
+				<div class="col-sm-1">
+				</div>
+				
+				<div class="col-sm-3 center-block">
+					<input type="button" id="searchButton" class="btn btn-primary" value="Search" onclick="executeSearch()" >
+				</div>
+
+				<div class="col-sm-1">
+				</div>
 			</div>
 
-			<div class="col-sm-4">
+
+			<div class="row">
+				<div class="col-sm-12"><hr></div>
 			</div>
+
+			<div class="row" id="iTunesHeadline">
+				<div class="col-sm-12"><h1>iTunes</h1></div>
+			</div>
+
+			<div class="row" id="iTunesResults"></div>
+
+		 	<div class="holder" id="iTunesPagination" align="center"></div>
+
+			<div class="row" id="YouTubeHeadline">
+				<div class="col-sm-12"><h1>YouTube</h1></div>
+			</div>
+
+		 	<div class="row" id="YouTubeResults"></div>
+
+		 	<div class="holder" id="YouTubePagination" align="center"></div>
+
 		</div>
 
-		<div class="row"><div class="col-sm-12"><hr></div></div>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/multimedia-search.js"></script>
+		<script type="text/javascript" src="js/jPages.js"></script>
+		<script src="https://apis.google.com/js/api.js"></script>
 
-		<div class="row" id="iTunesHeadline"><div class="col-sm-12"><h1>iTunes</h1></div></div>
-		<div class="row" id="results"></div>
-
-	 	<div class="holder" id="iTunesPagination" align="center"></div>
-
-		<div class="row" id="YouTubeHeadline"><div class="col-sm-12"><h1>YouTube</h1></div></div>
-	 	<div class="row" id="videoResults"></div>
-	 	<div class="holder" id="YouTubePagination" align="center"></div>
-
-
-	</div>
-
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/multimedia-search.js"></script>
-	<script type="text/javascript" src="js/jPages.js"></script>
-	<script src="https://apis.google.com/js/api.js"></script>
-
-</body>
-
-
-
+	</body>
 </html>
 
 
