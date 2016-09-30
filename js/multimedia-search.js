@@ -2,8 +2,14 @@
 
 function executeSearch(){
 	try{
-		searchiTunes();
-		searchUTube();	
+
+		if ($('#searchTerm').val() === ""){
+			alert("Please enter a search term.");
+		}
+		else{
+			searchiTunes();
+			searchYouTube();	
+		}
 	}
 	catch(err){
 		console.log(err);
@@ -54,14 +60,15 @@ function searchiTunes(){
 					songs += displayItem;	
 				});*/
 
-
-
-	            if(items.resultCount == 0)
+	            if(items.resultCount === 0)
 	            {
-	              var noResultsMessage = "No items found in the iTunes library for " + $('#searchTerm').val();
-	              $('#results').html('<div class="col-md-12"><center><h4>' + noResultsMessage + '</h4></center></div>');
+	            	$('#iTunesHeadline').hide();
+					var noResultsMessage = "No items found in the iTunes library for " + $('#searchTerm').val();
+					$('#results').html('<div class="col-md-12"><center><h4>' + noResultsMessage + '</h4></center></div>');
+					$('#iTunesPagination').hide();
 	            }
 	            else{
+	            	$('#iTunesHeadline').show();
 	            	$('#results').html(songs);
 
 		            //jPages
@@ -70,6 +77,7 @@ function searchiTunes(){
 							containerID: "results"
 						});
 					});
+					$('iTunesPagination').show();
 	            }
         	});
 	}
@@ -78,7 +86,7 @@ function searchiTunes(){
 	}
 }
 
-function searchUTube(){
+function searchYouTube(){
 	try{
 		$.ajax({
 			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=25&order=relevance&q='+formatCriteria($('#searchTerm').val())+'&key=AIzaSyC9IcvsoIFHxGEkRcgGZWx48gDKmTe7muQ',
@@ -98,22 +106,27 @@ function searchUTube(){
 				displayItem += '<div class="col-sm-12"><hr></div></div>';
 				videos += displayItem;
 				});
-				
 
+				if(data.items.length === 0){
+					$('#YouTubeHeadline').hide();
+					$('#YouTubePagination').hide();
 
-				if(data.items.length===0){
 					var noResultsMessage = "No items found in the YouTube library for " + $('#searchTerm').val();
-					$('#results').html('<div class="col-md-12"><center><h4>' + noResultsMessage + '</h4></center></div>');
+
+					$('#videoResults').html('<div class="col-md-12"><center><h4>' + noResultsMessage + '</h4></center></div>');
 				}
 				else{
+					$('#YouTubeHeadline').show();
 					$('#videoResults').html(videos);
 
-						//jPages
-						$(function() {
-							$("#YouTubePagination").jPages({
-								containerID: "videoResults"
-							});
+					//jPages
+					$(function() {
+						$("#YouTubePagination").jPages({
+							containerID: "videoResults"
 						});
+					});
+
+					$('#YouTubePagination').show();
 				}
 			}
 		});
