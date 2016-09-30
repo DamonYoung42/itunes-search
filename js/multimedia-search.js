@@ -58,7 +58,7 @@ function searchiTunes(){
 
 	            //jPages
 	            $(function() {
-					$("div.holder").jPages({
+					$("#iTunesPagination").jPages({
 						containerID: "results"
 					});
 				});
@@ -78,7 +78,7 @@ function searchiTunes(){
 function searchUTube(){
 	try{
 		$.ajax({
-			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&max=20&order=viewCount&q='+formatCriteria($('#searchTerm').val())+'&key=AIzaSyC9IcvsoIFHxGEkRcgGZWx48gDKmTe7muQ',
+			url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=25&order=relevance&q='+formatCriteria($('#searchTerm').val())+'&key=AIzaSyC9IcvsoIFHxGEkRcgGZWx48gDKmTe7muQ',
 			dataType: 'json',
 			type: 'GET',
 			success: function(data) {
@@ -97,6 +97,13 @@ function searchUTube(){
 				});
 				
 				$('#videoResults').html(videos);
+
+	   //          //jPages
+	            $(function() {
+					$("#YouTubePagination").jPages({
+						containerID: "videoResults"
+					});
+				});
 
 				if(data.items.length===0){
 					$('#videoResults').html('<div class="col-sm-12"><center><strong><p>0 matches found</p></strong></center></div>');
