@@ -3,9 +3,10 @@
 <head>
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap_superhero.css">
-	<link rel="stylesheet" type="text/css" href="css/itunes-search.css">
+	<link rel="stylesheet" type="text/css" href="css/multimedia-search.css">
 	<link rel="stylesheet" type="text/css" href="css/jPages.css">
 
+<!-- 	<script type="text/javascript" src="https://apis.google.com/js/api.js"></script> -->
 	<title>Multimedia Library Search</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
 				      <input type="text" class="form-control" id="searchTerm" placeholder="Enter artist's name or song title">
 				</div>
 
-				<input type="button" class="btn btn-primary" value="Search" onclick="runSearch()" />
+				<input type="button" class="btn btn-primary" value="Search" onclick="executeSearch()" >
 			</div>
 
 			<div class="col-sm-4">
@@ -33,16 +34,20 @@
 
 		<div class="row"><div class="col-sm-12"><hr></div></div>
 
-		<div class="row" id="results">
-	 	</div>
+		<div class="row"><div class="col-sm-12"><h1>iTunes</h1></div></div>
+		<div class="row" id="results"></div>
 
 	 	<div class="holder" align="center"></div>
 
+		<div class="row"><div class="col-sm-12"><h1>YouTube</h1></div></div>
+	 	<div class="row" id="videoResults"></div>
+
 	</div>
-	<script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
+
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/itunes-search.js"></script>
+	<script type="text/javascript" src="js/multimedia-search.js"></script>
 	<script type="text/javascript" src="js/jPages.js"></script>
+	<script src="https://apis.google.com/js/api.js"></script>
 
 </body>
 
