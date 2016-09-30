@@ -54,19 +54,22 @@ function searchiTunes(){
 					songs += displayItem;	
 				});*/
 
-	            $('#results').html(songs);
 
-	            //jPages
-	            $(function() {
-					$("#iTunesPagination").jPages({
-						containerID: "results"
-					});
-				});
 
 	            if(items.resultCount == 0)
 	            {
 	              var noResultsMessage = "No items found in the iTunes library for " + $('#searchTerm').val();
 	              $('#results').html('<div class="col-md-12"><center><h4>' + noResultsMessage + '</h4></center></div>');
+	            }
+	            else{
+	            	$('#results').html(songs);
+
+		            //jPages
+		            $(function() {
+						$("#iTunesPagination").jPages({
+							containerID: "results"
+						});
+					});
 	            }
         	});
 	}
@@ -96,17 +99,21 @@ function searchUTube(){
 				videos += displayItem;
 				});
 				
-				$('#videoResults').html(videos);
 
-	   //          //jPages
-	            $(function() {
-					$("#YouTubePagination").jPages({
-						containerID: "videoResults"
-					});
-				});
 
 				if(data.items.length===0){
-					$('#videoResults').html('<div class="col-sm-12"><center><strong><p>0 matches found</p></strong></center></div>');
+					var noResultsMessage = "No items found in the YouTube library for " + $('#searchTerm').val();
+					$('#results').html('<div class="col-md-12"><center><h4>' + noResultsMessage + '</h4></center></div>');
+				}
+				else{
+					$('#videoResults').html(videos);
+
+						//jPages
+						$(function() {
+							$("#YouTubePagination").jPages({
+								containerID: "videoResults"
+							});
+						});
 				}
 			}
 		});
